@@ -204,49 +204,50 @@ Note: You can setup Argo CD in any cluster, instructions are same.
     ```
     Output
     ```    
-        NAME                                                    READY   STATUS    RESTARTS       AGE
-    pod/argocd-application-controller-0                     1/1     Running   0              2m57s
-    pod/argocd-applicationset-controller-64f6bd6456-6jv2z   1/1     Running   0              2m57s
-    pod/argocd-dex-server-5fdcd9df8b-6ctpr                  1/1     Running   1 (2m2s ago)   2m57s
-    pod/argocd-notifications-controller-778495d96f-rhj9k    1/1     Running   0              2m57s
-    pod/argocd-redis-69fd8bd669-5cwkf                       1/1     Running   0              2m57s
-    pod/argocd-repo-server-75567c944-mth62                  1/1     Running   0              2m57s
-    pod/argocd-server-5c768cdd96-6rpdp                      1/1     Running   0              2m57s
+            NAME                                                    READY   STATUS              RESTARTS   AGE
+    pod/argocd-application-controller-0                     0/1     ContainerCreating   0          55s
+    pod/argocd-applicationset-controller-7b6ff755dc-sl2nd   0/1     ContainerCreating   0          55s
+    pod/argocd-dex-server-584f7d88dc-sfk4v                  0/1     Init:0/1            0          55s
+    pod/argocd-notifications-controller-67cdd486c6-zznqn    0/1     ContainerCreating   0          55s
+    pod/argocd-redis-6dbb9f6cf4-9s5fx                       0/1     Init:0/1            0          55s
+    pod/argocd-repo-server-57bdcb5898-rklsv                 0/1     Init:0/1            0          55s
+    pod/argocd-server-57d9cc9bcf-slmrd                      0/1     ContainerCreating   0          55s
 
     NAME                                              TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
-    service/argocd-applicationset-controller          ClusterIP   10.96.214.139    <none>        7000/TCP,8080/TCP            2m57s
-    service/argocd-dex-server                         ClusterIP   10.105.242.131   <none>        5556/TCP,5557/TCP,5558/TCP   2m57s
-    service/argocd-metrics                            ClusterIP   10.108.182.252   <none>        8082/TCP                     2m57s
-    service/argocd-notifications-controller-metrics   ClusterIP   10.106.4.82      <none>        9001/TCP                     2m57s
-    service/argocd-redis                              ClusterIP   10.98.222.183    <none>        6379/TCP                     2m57s
-    service/argocd-repo-server                        ClusterIP   10.103.237.141   <none>        8081/TCP,8084/TCP            2m57s
-    service/argocd-server                             ClusterIP   10.107.245.182   <none>        80/TCP,443/TCP               2m57s
-    service/argocd-server-metrics                     ClusterIP   10.108.248.213   <none>        8083/TCP                     2m57s
+    service/argocd-applicationset-controller          ClusterIP   10.100.121.169   <none>        7000/TCP,8080/TCP            52s
+    service/argocd-dex-server                         ClusterIP   10.109.212.68    <none>        5556/TCP,5557/TCP,5558/TCP   56s
+    service/argocd-metrics                            ClusterIP   10.96.144.188    <none>        8082/TCP                     56s
+    service/argocd-notifications-controller-metrics   ClusterIP   10.96.81.128     <none>        9001/TCP                     56s
+    service/argocd-redis                              ClusterIP   10.104.154.194   <none>        6379/TCP                     56s
+    service/argocd-repo-server                        ClusterIP   10.99.25.108     <none>        8081/TCP,8084/TCP            56s
+    service/argocd-server                             ClusterIP   10.102.201.60    <none>        80/TCP,443/TCP               56s
+    service/argocd-server-metrics                     ClusterIP   10.104.218.14    <none>        8083/TCP                     56s
 
     NAME                                               READY   UP-TO-DATE   AVAILABLE   AGE
-    deployment.apps/argocd-applicationset-controller   1/1     1            1           2m57s
-    deployment.apps/argocd-dex-server                  1/1     1            1           2m57s
-    deployment.apps/argocd-notifications-controller    1/1     1            1           2m57s
-    deployment.apps/argocd-redis                       1/1     1            1           2m57s
-    deployment.apps/argocd-repo-server                 1/1     1            1           2m57s
-    deployment.apps/argocd-server                      1/1     1            1           2m57s
+    deployment.apps/argocd-applicationset-controller   0/1     1            0           56s
+    deployment.apps/argocd-dex-server                  0/1     1            0           55s
+    deployment.apps/argocd-notifications-controller    0/1     1            0           55s
+    deployment.apps/argocd-redis                       0/1     1            0           55s
+    deployment.apps/argocd-repo-server                 0/1     1            0           55s
+    deployment.apps/argocd-server                      0/1     1            0           55s
 
     NAME                                                          DESIRED   CURRENT   READY   AGE
-    replicaset.apps/argocd-applicationset-controller-64f6bd6456   1         1         1       2m57s
-    replicaset.apps/argocd-dex-server-5fdcd9df8b                  1         1         1       2m57s
-    replicaset.apps/argocd-notifications-controller-778495d96f    1         1         1       2m57s
-    replicaset.apps/argocd-redis-69fd8bd669                       1         1         1       2m57s
-    replicaset.apps/argocd-repo-server-75567c944                  1         1         1       2m57s
-    replicaset.apps/argocd-server-5c768cdd96                      1         1         1       2m57s
+    replicaset.apps/argocd-applicationset-controller-7b6ff755dc   1         1         0       55s
+    replicaset.apps/argocd-dex-server-584f7d88dc                  1         1         0       55s
+    replicaset.apps/argocd-notifications-controller-67cdd486c6    1         1         0       55s
+    replicaset.apps/argocd-redis-6dbb9f6cf4                       1         1         0       55s
+    replicaset.apps/argocd-repo-server-57bdcb5898                 1         1         0       55s
+    replicaset.apps/argocd-server-57d9cc9bcf                      1         1         0       55s
 
     NAME                                             READY   AGE
-    statefulset.apps/argocd-application-controller   1/1     2m57s
+    statefulset.apps/argocd-application-controller   0/1     55s
     ```
 
 ---
 - Access ArgoCD With configuring NodePort 
     ```
-    kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
+    kubectl patch service argocd-server -n argocd --type=merge -p '{\"spec\": {\"type\": \"NodePort\"}}'
+    minikube ip
     ```
 - Verify if ArgoCD server running as NodePort.
    ```
@@ -254,19 +255,24 @@ Note: You can setup Argo CD in any cluster, instructions are same.
    ``` 
    Output
    ```
-   NAME                                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
-    argocd-applicationset-controller          ClusterIP   10.96.214.139    <none>        7000/TCP,8080/TCP            7m17s
-    argocd-dex-server                         ClusterIP   10.105.242.131   <none>        5556/TCP,5557/TCP,5558/TCP   7m17s
-    argocd-metrics                            ClusterIP   10.108.182.252   <none>        8082/TCP                     7m17s
-    argocd-notifications-controller-metrics   ClusterIP   10.106.4.82      <none>        9001/TCP                     7m17s
-    argocd-redis                              ClusterIP   10.98.222.183    <none>        6379/TCP                     7m17s
-    argocd-repo-server                        ClusterIP   10.103.237.141   <none>        8081/TCP,8084/TCP            7m17s
-    argocd-server                             NodePort    10.107.245.182   <none>        80:30692/TCP,443:31365/TCP   7m17s
-    argocd-server-metrics                     ClusterIP   10.108.248.213   <none>        8083/TCP                     7m17s
+    NAME                                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
+    argocd-applicationset-controller          ClusterIP   10.100.121.169   <none>        7000/TCP,8080/TCP            9m37s
+    argocd-dex-server                         ClusterIP   10.109.212.68    <none>        5556/TCP,5557/TCP,5558/TCP   9m41s
+    argocd-metrics                            ClusterIP   10.96.144.188    <none>        8082/TCP                     9m41s
+    argocd-notifications-controller-metrics   ClusterIP   10.96.81.128     <none>        9001/TCP                     9m41s
+    argocd-redis                              ClusterIP   10.104.154.194   <none>        6379/TCP                     9m41s
+    argocd-repo-server                        ClusterIP   10.99.25.108     <none>        8081/TCP,8084/TCP            9m41s
+    argocd-server                             NodePort    10.102.201.60    <none>        80:31209/TCP,443:32389/TCP   9m41s
+    argocd-server-metrics                     ClusterIP   10.104.218.14    <none>        8083/TCP                     9m41s
    ```
 - Grab ArgoCD secret for accessing UI
    ```
    kubectl get secrets -n argocd argocd-initial-admin-secret -o jsonpath='{.data.password}' | base64 -d
+
+   # passwd 
+   kubectl get secret argocd-initial-admin-secret -n argocd `
+  -o jsonpath="{.data.password}" | % { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
+
    ```
 
 - Start Minkube Service. 
@@ -274,16 +280,23 @@ Note: You can setup Argo CD in any cluster, instructions are same.
     minikube service argocd-server -n argocd
     ```
     Output
-    ```
-    |-----------|---------------|-------------|-----------------------------|
-    | NAMESPACE |     NAME      | TARGET PORT |             URL             |
-    |-----------|---------------|-------------|-----------------------------|
-    | argocd    | argocd-server | http/80     | http://172.29.213.129:30692 |
-    |           |               | https/443   | http://172.29.213.129:31365 |
-    |-----------|---------------|-------------|-----------------------------|
-    [argocd argocd-server http/80
-    https/443 http://172.29.213.129:30692
-    http://172.29.213.129:31365]
+    
+    ┌───────────┬───────────────┬─────────────┬───────────────────────────┐
+    │ NAMESPACE │     NAME      │ TARGET PORT │            URL            │
+    ├───────────┼───────────────┼─────────────┼───────────────────────────┤
+    │ argocd    │ argocd-server │ http/80     │ http://192.168.49.2:31209 │
+    │           │               │ https/443   │ http://192.168.49.2:32389 │
+    └───────────┴───────────────┴─────────────┴───────────────────────────┘
+    * Starting tunnel for service argocd-server./
+    ┌───────────┬───────────────┬─────────────┬────────────────────────┐
+    │ NAMESPACE │     NAME      │ TARGET PORT │          URL           │
+    ├───────────┼───────────────┼─────────────┼────────────────────────┤
+    │ argocd    │ argocd-server │             │ http://127.0.0.1:62939 │
+    │           │               │             │ http://127.0.0.1:62940 │
+    └───────────┴───────────────┴─────────────┴────────────────────────┘
+    * Starting tunnel for service argocd-server.
+    [argocd argocd-server  http://127.0.0.1:62939
+    http://127.0.0.1:62940]
 
    ```
    Username: admin
