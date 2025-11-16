@@ -52,8 +52,22 @@ jobs:
 
       # Build Docker Image
       - name: Build Docker Image
-        run: docker build . -t dineshops/demo-app:${{ env.VERSION }}
+        run: |
+          docker build . -t dineshops/demo-app:${{ env.VERSION }}
 
       # Push Docker Image
       - name: Push Docker Image
         run: docker push dineshops/demo-app:${{ env.VERSION }}
+      
+      #Update the k8s manifest files
+      - name: Update k8s manifests
+        run: 
+          sed -i 's/image: dineshops/demo-app:*/image: dineshops/demo-app:${{ env.VERSION }}/' deploy/deploy.yaml
+      #Update Github
+      - name: Commit the changes
+        run: | 
+          git config --global user.email "<>"
+          git config --global user.name "Github Actions Bot"
+          git add deploy/deploy.yaml
+          git commit -m "Update deploy.yaml with new image version -${{ env.version }}"
+          git push origin main
