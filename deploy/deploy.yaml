@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: demo-app
-        image: dineshops/demo-app:v20251116171714
+        image: dineshops/demo-app:v20251116172350
         ports:
         - containerPort: 5000
       imagePullSecrets:
