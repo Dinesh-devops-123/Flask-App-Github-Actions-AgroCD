@@ -91,6 +91,7 @@ Note: you need to change the name of your image, according to your dockerhub use
 
 2. Lets create container with image.
  ```
+ docker run -d -p hostport:containerport --name=container_name img_name:v1
  docker run -d -p 5000:5000 --name=demo-app demo-app
  ```
 
