@@ -61,7 +61,7 @@ jobs:
       
       #Update the k8s manifest files
       - name: Update k8s manifests
-        run: 
+        run: |
           sed -i "s|image: dineshops/demo-app:.*|image: dineshops/demo-app:${{ env.VERSION }}|" deploy/deploy.yaml
       #Update Github
       - name: Commit the changes
