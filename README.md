@@ -43,7 +43,7 @@ Whenever we are creating pipeline, it is best practice to test application local
 
 - Clone/Fork the Repo. 
     ```
-    git clone https://github.com/infosecsingh/Flask-App-GitHub-Actions-ArgoCD.git
+    git clone https://github.com/Dinesh-devops-123/Flask-App-Github-Actions-AgroCD.git
     cd Flask-App-GitHub-Actions-ArgoCD
     ```
 - Install Dependence
@@ -62,10 +62,6 @@ Whenever we are creating pipeline, it is best practice to test application local
 Note: This application is running on 5000 port, but if you want to change, you can change the port in app.py script.
 
 ---
-## Containerized Application.
-Before creating pipeline, test locally if your dockerfile is accurate by running container. 
-We will create Dockerfile. If you don't know what is docker, please read some basic understanding about docker: https://github.com/infosecsingh/Learn-Docker
-
 Write Dockerfile
 ```
 # Step 1: Base image
@@ -89,7 +85,7 @@ CMD ["python", "app.py"]
 #### Lets Build and Run the Container
 1. Build the Image: Run the following in the directory containing your Dockerfile:
 ```
-docker build -t 1nfosecsingh/demo-app:v1 .
+docker build -t dineshops/demo-app:v1 .
 ```
 Note: you need to change the name of your image, according to your dockerhub username.
 
@@ -159,28 +155,28 @@ Note: you need to change the name of your image, according to your dockerhub use
         # Build the Docker Image
         - name: Build Docker Image
             run: |
-            docker build . -t 1nfosecsingh/demo-app:${{ env.VERSION }} 
+            docker build . -t dineshops/demo-app:${{ env.VERSION }} 
         
         # Push the Docker Image
         - name: Push Docker Image
             run: |
-            docker push 1nfosecsingh/demo-app:${{ env.VERSION }}
+            docker push dineshops/demo-app:${{ env.VERSION }}
         
         # UPdate the K8s Manifest Files
         - name: Update K8s Manifests
             run: |
             cat deploy/deploy.yaml
-            sed -i "s|image: 1nfosecsingh/demo-app:.*|image: 1nfosecsingh/demo-app:${{ env.VERSION }}|g" deploy/deploy.yaml
+            sed -i "s|image: dineshops/demo-app:.*|image: dineshops/demo-app:${{ env.VERSION }}|g" deploy/deploy.yaml
             cat deploy/deploy.yaml
 
         # Update Github
         - name: Commit the changes
             run: |
-            git config --global user.email "<infosecsingh@gmail.com>"
+            git config --global user.email "<dineshmoorthi8300@gmail.com>"
             git config --global user.name "GitHub Actions Bot"
             git add deploy/deploy.yaml
             git commit -m "Update deploy.yaml with new image version - ${{ env.VERSION }}"
-            git remote set-url origin https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/infosecsingh/Flask-App-GitHub-Actions-ArgoCD.git
+            git remote set-url origin https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/dinesh-devops-123/Flask-App-GitHub-Actions-ArgoCD.git
             git push origin master
     ```
 
