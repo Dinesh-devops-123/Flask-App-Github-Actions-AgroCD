@@ -17,3 +17,7 @@ spec:
         image: dineshops/demo-app:v20251116165722
         ports:
         - containerPort: 5000
+      imagePullSecrets:
+      - name: regcred
+
+
